@@ -4,7 +4,7 @@ import classes from './News.module.css';
 const News = (props) => {
   return (
     <div>
-      <h1>Settings</h1>
+      <h1>News</h1>
     </div>
   );
 }

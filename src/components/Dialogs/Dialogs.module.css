@@ -1,3 +1,24 @@
-h1 {
-    text-align: center;
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+.dialogsItems {
+    padding: 10px;
+}
+
+.item a {
+    color: rgb(49, 49, 49);
+    text-decoration: none;
+}
+.item a.active {
+    color: rgb(20, 155, 141);
+    font-weight: bolder;
+}
+
+.messages {
+    padding: 10px;
+}
+
+.message {
+
 }

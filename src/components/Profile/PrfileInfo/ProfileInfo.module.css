@@ -1,0 +1,23 @@
+.wallpaper img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.discriptionBlock {
+  padding: 10px;
+  display: flex;
+}
+.discription {
+  margin-left: 50px;
+}
+.discriptionItem {
+  font-size: 25px;
+  padding: 7px;
+}
+.name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+

@@ -4,9 +4,14 @@ import classes from './Post.module.css'
 const Post = (props) => {
   return (
     <div className={classes.item}>
-      <img src={props.ava} />
-      {props.message}
-      <div>like</div>
+      <div className={classes.contentPostItem}>
+        <img className={classes.ava} src={props.ava} />
+        <div className={classes.message}>{props.message}</div>
+      </div>
+      <div className={classes.like}>
+        <div>20</div>
+        <img src="https://img.icons8.com/pastel-glyph/2x/facebook-like.png"/>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 .nav {
   grid-area: n;
-  background-color: turquoise;
+  background-color: #9F69D6;
   padding: 10px;
 }
 
@@ -16,6 +16,6 @@
 }
 
 .item a.active {
-  color: rgb(20, 155, 141);
+  color: #542881;
 }
 

@@ -1,6 +1,6 @@
 .header {
   grid-area: h;
-  background-color: turquoise;
+  background-color: #9F69D6;
   box-sizing: border-box;
   padding-left: 30px;
   display: flex;

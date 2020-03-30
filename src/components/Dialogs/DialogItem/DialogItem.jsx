@@ -8,6 +8,7 @@ const DialogItem = (props) => {
   
   return (
     <div className={classes.item}>
+      <div className={classes.ava}></div>
       <NavLink to={path} activeClassName={classes.active}>{props.name}</NavLink>
     </div>
   )

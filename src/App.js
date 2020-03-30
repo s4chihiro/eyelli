@@ -15,13 +15,13 @@ function App(props) {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar />
+        <Navbar state={props.state.friendsList}/>
         <div className="app-wrapper-content">
-          <Route path="/profile" render={() => <Profile state={ props.state.profilePage } /> } />
+          <Route path="/profile/me" render={() => <Profile state={ props.state.profilePage } /> } />
           <Route path="/messages" render={() => <Dialogs state={ props.state.dialogsPage } /> } />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
-          <Route path="/settings" component={Settings} />
+          <Route exact path="/settings" component={Settings} />
         </div>
       </div>
     </BrowserRouter>

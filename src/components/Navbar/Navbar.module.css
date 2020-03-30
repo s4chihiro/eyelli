@@ -19,3 +19,10 @@
   color: #542881;
 }
 
+.sitebarFriends {
+  margin-top: 50px;
+  font-size: 30px;
+}
+a.sitebarFriendsLink {
+  font-size: 25px;
+}

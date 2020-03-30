@@ -1,0 +1,22 @@
+.friendsItem {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+}
+
+.friendsItem a {
+  font-size: 11px;
+}
+
+.friendsItem a.active {
+  color: #542881;
+}
+
+.friendAva {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba( 92,  13, 172, 1);
+  margin-bottom: 5px;
+}

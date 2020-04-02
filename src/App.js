@@ -10,15 +10,14 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
 function App(props) {
-
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar state={props.state.friendsList}/>
+        <Navbar state={props.state.friendsList} />
         <div className="app-wrapper-content">
-          <Route path="/profile/me" render={() => <Profile state={ props.state.profilePage } /> } />
-          <Route path="/messages" render={() => <Dialogs state={ props.state.dialogsPage } /> } />
+          <Route path="/profile/me" render={() => <Profile state={ props.state.profilePage } addPost={props.addPost} updateNewPostText={props.updateNewPostText} /> } />
+  <Route path="/messages" render={() => <Dialogs state={ props.state.dialogsPage } addMessage={ props.addMessage } updateNewMessage={ props.updateNewMessage } /> } />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
           <Route exact path="/settings" component={Settings} />

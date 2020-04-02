@@ -14,7 +14,13 @@ const Dialogs = (props) => {
 
   let addMessage = () => {
     let text = newMessageElement.current.value;
-    alert(text);
+    if (text === '') { return; }
+    props.addMessage(text);
+  }
+
+  let onMessageChange = () => {
+    let text = newMessageElement.current.value;
+    props.updateNewMessage(text);
   }
 
   return (
@@ -27,7 +33,7 @@ const Dialogs = (props) => {
       <div className={classes.messages}>
        { messagesElements }
        <div className={classes.wrapperAddMessage}>
-        <textarea ref={ newMessageElement }></textarea>
+        <textarea onChange={ onMessageChange } ref={ newMessageElement } value={props.state.messageText}></textarea>
         <button onClick={ addMessage }>Send</button>
       </div>
       </div>

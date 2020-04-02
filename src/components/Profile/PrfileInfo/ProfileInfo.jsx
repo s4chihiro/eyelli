@@ -19,7 +19,7 @@ const ProfileInfo = (props) => {
           <div className={classes.discriptionItem}><span className={classes.name}>Andrey Tikhonov</span></div>
           <div  className={classes.discriptionItem}>Date of Birth: 29 april</div>
           <div className={classes.discriptionItem}>City: Cherepovets</div>
-          <div className={classes.discriptionItem}>Education: Chmetcol' 20</div>
+          <div className={classes.discriptionItem}>Organization: USSOBO</div>
         </div>
 
       </div>

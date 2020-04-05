@@ -30,13 +30,18 @@ const dialogsReducer = (state = initialState, action) => {
         id: '1',
         message: state.messageText
       };
-      state.messages.push(message);
-      state.messageText = '';
-      return state;
+
+      let stateCopy = JSON.parse(JSON.stringify(state));
+      if (stateCopy.messageText === '') {return stateCopy}
+      stateCopy.messages.push(message);
+      stateCopy.messageText = '';
+      return stateCopy;
     }
     case UPDATE_NEW_MESSAGE: {
-      state.messageText = action.newText;
-      return state;
+      let stateCopy = JSON.parse(JSON.stringify(state));
+
+      stateCopy.messageText = action.newText;
+      return stateCopy;
     }
     default: return state;
   }

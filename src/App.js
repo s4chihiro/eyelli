@@ -3,28 +3,26 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 function App(props) {
-  return (
-    <BrowserRouter>
+  return (  
       <div className="app-wrapper">
         <Header />
         <Navbar state={props.store.getState().friendsList} />
         <div className="app-wrapper-content">
-          <Route path="/profile/me" render={() => <Profile store={ props.store } /> } />
-          <Route path="/messages" render={() => <DialogsContainer store={ props.store } /> } />
+          <Route path="/profile/me" render={() => <Profile /> } />
+          <Route path="/messages" render={() => <DialogsContainer /> } />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
           <Route exact path="/settings" component={Settings} />
         </div>
       </div>
-    </BrowserRouter>
-  )
-}
+  );
+};
 
 export default App;

@@ -8,6 +8,7 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 function App(props) {
   return (  
@@ -15,11 +16,12 @@ function App(props) {
         <Header />
         <Navbar state={props.store.getState().friendsList} />
         <div className="app-wrapper-content">
-          <Route path="/profile/me" render={() => <Profile /> } />
-          <Route path="/messages" render={() => <DialogsContainer /> } />
-          <Route path="/news" component={News} />
-          <Route path="/music" component={Music} />
-          <Route exact path="/settings" component={Settings} />
+          <Route path="/profile/me" render={ () => <Profile /> } />
+          <Route path="/messages" render={ () => <DialogsContainer /> } />
+          <Route path="/news" component={ News } />
+          <Route path="/music" component={ Music } />
+          <Route exact path="/settings" component={ Settings } />
+          <Route path="/users" render={ ()=> <UsersContainer /> } />
         </div>
       </div>
   );

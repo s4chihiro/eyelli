@@ -6,13 +6,13 @@ const ProfileInfo = (props) => {
     <div>
       
       <div className={classes.wallpaper}>
-        <img src="https://asiamountains.net/upload/slide/slide-1960x857-07.jpg"/>
+        <img src="https://asiamountains.net/upload/slide/slide-1960x857-07.jpg" alt="wallpapper"/>
       </div>
 
       <div className={classes.discriptionBlock}>
 
         <div className={classes.avatar}>
-          <img src="https://arcanashop.ru/avatar/00/14/26050062.jpg"/>
+          <img src="https://arcanashop.ru/avatar/00/14/26050062.jpg" alt="avatar"/>
         </div>
   
         <div className={classes.discription}>

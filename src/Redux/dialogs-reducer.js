@@ -26,12 +26,11 @@ const initialState = {
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE: {
+      let stateCopy = JSON.parse(JSON.stringify(state));
       let message = {
         id: '1',
-        message: state.messageText
+        message: stateCopy.messageText
       };
-
-      let stateCopy = JSON.parse(JSON.stringify(state));
       if (stateCopy.messageText === '') {return stateCopy}
       stateCopy.messages.push(message);
       stateCopy.messageText = '';
@@ -39,7 +38,6 @@ const dialogsReducer = (state = initialState, action) => {
     }
     case UPDATE_NEW_MESSAGE: {
       let stateCopy = JSON.parse(JSON.stringify(state));
-
       stateCopy.messageText = action.newText;
       return stateCopy;
     }

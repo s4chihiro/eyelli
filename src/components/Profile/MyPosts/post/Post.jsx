@@ -5,12 +5,12 @@ const Post = (props) => {
   return (
     <div className={classes.item}>
       <div className={classes.contentPostItem}>
-        <img className={classes.ava} src={props.ava} />
+        <img className={classes.ava} src={props.ava} alt="avatar" />
         <div className={classes.message}>{props.message}</div>
       </div>
       <div className={classes.like}>
         <div>{props.likesCount}</div>
-        <img src="https://img.icons8.com/pastel-glyph/2x/facebook-like.png"/>
+        <img src="https://img.icons8.com/pastel-glyph/2x/facebook-like.png" alt="avatar" />
       </div>
     </div>
   )

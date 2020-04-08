@@ -3,41 +3,39 @@ import classes from './Users.module.css';
 import UserItem from './UserItem/UserItem';
 import * as axios from 'axios';
 
-const Users = (props) => {
-  let getUsers = () => {
-    if (props.users.users.length === 0) {
+class Users extends React.Component {
 
-      axios
-        .get('https://social-network.samuraijs.com/api/1.0/users')
-        .then(response => {
-          debugger;
-          props.setUsers(response.data.items);
-        });
-
-    }
+  componentDidMount () {
+    alert('did mount');
+    axios
+      .get('https://social-network.samuraijs.com/api/1.0/users')
+      .then(response => {
+        this.props.setUsers(response.data.items);
+      });
   }
+  render () {
 
-  let users = props.users.users.map(u => {
-
+    let users = this.props.users.users.map(u => {
+      return (
+        <UserItem
+          id={u.id}
+          name={u.name}
+          followed={u.followed}
+          status={u.status}
+          location={u.location}
+          toggleFollow={this.props.toggleFollow}
+        />
+      )
+    });
+  
     return (
-      <UserItem
-        id={u.id}
-        name={u.name}
-        followed={u.followed}
-        status={u.status}
-        location={u.location}
-        toggleFollow={props.toggleFollow}
-      />
+      <div className={classes.usersWrap}>
+        <h1>Users</h1>
+        {/*<button onClick={this.getUsers}>Get users</button>*/}
+        { users }
+      </div>
     )
-  });
-
-  return (
-    <div className={classes.usersWrap}>
-      <h1>Users</h1>
-      <button onClick={getUsers}>Get users</button>
-      {users}
-    </div>
-  )
-};
+  }
+}
 
 export default Users;

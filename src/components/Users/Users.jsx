@@ -6,14 +6,31 @@ import * as axios from 'axios';
 class Users extends React.Component {
 
   componentDidMount () {
-    alert('did mount');
     axios
-      .get('https://social-network.samuraijs.com/api/1.0/users')
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.users.currentPage}&count=${this.props.users.pageSize}`)
+      .then(response => {
+        this.props.setUsers(response.data.items);
+        this.props.setTotalUsersCount(response.data.totalCount);
+        debugger;
+      });
+  }
+
+  onPageChanged = (p) => {
+    this.props.setCurrentPage(p);
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.users.pageSize}`)
       .then(response => {
         this.props.setUsers(response.data.items);
       });
   }
+
   render () {
+    let pagesCount = Math.ceil( this.props.users.totalUsersCount / this.props.users.pageSize ); 
+    let pages = [];
+
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
 
     let users = this.props.users.users.map(u => {
       return (
@@ -22,6 +39,7 @@ class Users extends React.Component {
           name={u.name}
           followed={u.followed}
           status={u.status}
+          photo={u.photos.small}
           location={u.location}
           toggleFollow={this.props.toggleFollow}
         />
@@ -31,7 +49,9 @@ class Users extends React.Component {
     return (
       <div className={classes.usersWrap}>
         <h1>Users</h1>
-        {/*<button onClick={this.getUsers}>Get users</button>*/}
+        {pages.map(p => <span 
+          className={this.props.users.currentPage === p && classes.selectedPage} 
+          onClick={(e) => { this.onPageChanged(p) }}>{ p } </span>)}
         { users }
       </div>
     )

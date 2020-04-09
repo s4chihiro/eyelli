@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './FriendsItem.module.css';
 import { NavLink } from 'react-router-dom';
+import photoAva from './../../../../assets/defavatar.png';
 
 
 
@@ -8,7 +9,7 @@ const FriendsItem = (props) => {
   let path = '/friend/' + props.id;
   return (
     <div className={classes.friendsItem}>
-      <div className={classes.friendAva}></div>
+      <img className={classes.friendAva} src={photoAva} alt='avatar'/>
   <NavLink to={path} activeClassName={classes.active}>{props.name}</NavLink>
     </div>
   )

@@ -1,5 +1,4 @@
 .ava {
-    
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -23,9 +22,11 @@
 .userItem {
     margin: 30px;
     display: flex;
+    align-items: center;
 }
 
 .description {
+    min-height: 108px;
     box-sizing: border-box;
     padding: 10px 30px;
     flex-grow: 1;
@@ -36,12 +37,14 @@
 }
 
 .name {
-    font-size: 35px;
+    font-size: 30px;
     margin-bottom: 5px;
 }
 .status {
     font-size: 12px;
     color: gray;
+    max-width: 200px;
+    overflow-wrap: break-word;
 }
 
 .location {

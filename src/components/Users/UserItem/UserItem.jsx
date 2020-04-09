@@ -1,19 +1,19 @@
 import React from 'react';
 import classes from './UserItem.module.css';
-
+import photoAva from './../../../assets/defavatar.png'
 class UserItem extends React.Component {
   
   onClick = () => {
     this.props.toggleFollow(this.props.id);
   }
   render() {
-    let photo = this.props.photo ? this.props.photo : 'https://d1u1amw606tzwl.cloudfront.net/assets/users/avatar-default-96007ee5610cdc5a9eed706ec0889aec2257a3937d0fbb747cf335f8915f09b2.png';
+    let photo = this.props.photo ? this.props.photo : photoAva;
 
     let followed = this.props.followed ? 'unfollow' : 'follow';
     return (
       <div className={classes.userItem}>
         <div className={classes.avaFollowWrap}>
-          <img className={classes.ava} src={ photo }/>
+          <img className={classes.ava} src={ photo } alt={'avatar'}/>
           <button onClick={ this.onClick } className={classes.follow}>
             { followed }
           </button>

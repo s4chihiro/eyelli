@@ -1,6 +1,8 @@
 import React from 'react';
 import classes from './UserItem.module.css';
-import photoAva from './../../../assets/defavatar.png'
+import photoAva from './../../../assets/defavatar.png';
+import { NavLink } from 'react-router-dom';
+
 class UserItem extends React.Component {
   
   onClick = () => {
@@ -13,7 +15,9 @@ class UserItem extends React.Component {
     return (
       <div className={classes.userItem}>
         <div className={classes.avaFollowWrap}>
-          <img className={classes.ava} src={ photo } alt={'avatar'}/>
+          <NavLink to={'/profile/' + this.props.id}>
+            <img className={classes.ava} src={ photo } alt={'avatar'}/>
+          </NavLink>
           <button onClick={ this.onClick } className={classes.follow}>
             { followed }
           </button>

@@ -39,7 +39,7 @@ const Navbar = (props) => {
       </div>
 
       <div className={classes.item}>
-        <NavLink to="settings" activeClassName={classes.active}>
+        <NavLink to="/settings" activeClassName={classes.active}>
         <span role="img" aria-label="settings">&#128296;</span> Settings
         </NavLink>
       </div>

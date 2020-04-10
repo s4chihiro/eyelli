@@ -12,12 +12,21 @@
   margin-left: 50px;
 }
 .discriptionItem {
-  font-size: 25px;
+  font-size: 20px;
   padding: 7px;
 }
 .name {
   font-size: 30px;
   font-weight: bold;
+}
+.avatar img {
+  width: 180px;
+  border-radius: 50%;
+}
+.id {
+  color: gray;
+  margin-left: 20px;
+  font-size: 20px;
 }
 
 

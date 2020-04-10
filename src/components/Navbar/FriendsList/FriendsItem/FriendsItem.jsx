@@ -6,11 +6,11 @@ import photoAva from './../../../../assets/defavatar.png';
 
 
 const FriendsItem = (props) => {
-  let path = '/friend/' + props.id;
+  let path = '/profile/' + props.id;
   return (
     <div className={classes.friendsItem}>
       <img className={classes.friendAva} src={photoAva} alt='avatar'/>
-  <NavLink to={path} activeClassName={classes.active}>{props.name}</NavLink>
+      <NavLink to={path} activeClassName={classes.active}>{props.name}</NavLink>
     </div>
   )
 }

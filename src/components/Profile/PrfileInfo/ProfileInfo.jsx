@@ -2,11 +2,15 @@ import React from 'react';
 import classes from './ProfileInfo.module.css';
 import avatar from './../../../assets/defavatar.png';
 import Preloader from '../../common/Preloader/Preloader';
+
+
 const ProfileInfo = (props) => {
 
   if (!props.profile) {
     return <Preloader />
   } else {
+  
+  let photoAva = props.profile.photos.large ? props.profile.photos.large : avatar;
 
     return (
       <div>
@@ -18,7 +22,7 @@ const ProfileInfo = (props) => {
         <div className={classes.discriptionBlock}>
 
           <div className={classes.avatar}>
-            <img src={props.profile.photos.large} alt="avatar" />
+            <img src={photoAva} alt="avatar" />
           </div>
 
           <div className={classes.discription}>
@@ -26,9 +30,8 @@ const ProfileInfo = (props) => {
               <span className={classes.name}>{props.profile.fullName}</span>
               <span className={classes.id}>#{props.profile.userId}</span>
             </div>
-            <div className={classes.discriptionItem}>About me: {props.profile.aboutMe}</div>
-            <div className={classes.discriptionItem}>City: Cherepovets</div>
-            <div className={classes.discriptionItem}>Organization: USSOBO</div>
+            <div className={classes.discriptionItem}>{props.profile.aboutMe}</div>
+           
           </div>
 
         </div>

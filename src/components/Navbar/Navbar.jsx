@@ -9,7 +9,7 @@ const Navbar = (props) => {
     <nav className={classes.nav}>
 
       <div className={classes.item}>
-        <NavLink to="/profile/me" activeClassName={classes.active}>
+        <NavLink to="/profile" activeClassName={classes.active}>
         <span role="img" aria-label="profile">&#128100;</span> Profile
         </NavLink>
       </div>

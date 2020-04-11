@@ -19,6 +19,9 @@
   font-size: 30px;
   font-weight: bold;
 }
+.avatar {
+  margin-left: 50px;
+}
 .avatar img {
   width: 180px;
   border-radius: 50%;

@@ -16,7 +16,7 @@ function App(props) {
         <Header />
         <Navbar state={props.store.getState().friendsList} />
         <div className="app-wrapper-content">
-          <Route path="/profile" render={ () => <ProfileContainer /> } />
+          <Route path="/profile/:userId?" render={ () => <ProfileContainer /> } />
           <Route path="/messages" render={ () => <DialogsContainer /> } />
           <Route path="/news" component={ News } />
           <Route path="/music" component={ Music } />

@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         toggleFollow: (userId) => {
             dispatch(toggleFollowAC(userId));
-        },
+        }
     }
 };
 

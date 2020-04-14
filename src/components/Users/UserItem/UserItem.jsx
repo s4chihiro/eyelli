@@ -2,36 +2,25 @@ import React from 'react';
 import classes from './UserItem.module.css';
 import photoAva from './../../../assets/defavatar.png';
 import { NavLink } from 'react-router-dom';
-import * as axios from 'axios';
+import { followPost, followDelete } from '../../../api/api';
 
 class UserItem extends React.Component {
-  
+
   onClick = () => {
-    //this.props.toggleFollow(this.props.id);
     if (this.props.followed) {
-      axios
-        .delete(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.id}`, {
-          withCredentials: true,
-          headers: {
-            'API-KEY': 'f4a0f41b-5eca-43bf-b908-e05c3db59625'
-          }
-        })
-        .then(response => {
-          if (response.data.resultCode === 0) {
-            this.props.toggleFollow(this.props.id);
-          }
-        });
-    } else {
-      axios
-      .post(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.id}`,{}, {
-        withCredentials: true,
-        headers: {
-          'API-KEY': 'f4a0f41b-5eca-43bf-b908-e05c3db59625'
-        }
-      })
-      .then(response => {
-        if (response.data.resultCode === 0) {
+      this.props.toggleFollowingInProgress(true, this.props.id);
+      followDelete(this.props.id).then(data => {
+        if (data.resultCode === 0) {
           this.props.toggleFollow(this.props.id);
+          this.props.toggleFollowingInProgress(false, this.props.id);
+        }
+      });
+    } else {
+      this.props.toggleFollowingInProgress(true, this.props.id);
+      followPost(this.props.id).then(data => {
+        if (data.resultCode === 0) {
+          this.props.toggleFollow(this.props.id);
+          this.props.toggleFollowingInProgress(false, this.props.id);   
         }
       });
     }
@@ -45,16 +34,16 @@ class UserItem extends React.Component {
       <div className={classes.userItem}>
         <div className={classes.avaFollowWrap}>
           <NavLink to={'/profile/' + this.props.id}>
-            <img className={classes.ava} src={ photo } alt={'avatar'}/>
+            <img className={classes.ava} src={photo} alt={'avatar'} />
           </NavLink>
-          <button onClick={ this.onClick } className={classes.follow}>
-            { followed }
+          <button disabled={this.props.followingInProgress.some(id => id === this.props.id)} onClick={this.onClick} className={classes.follow}>
+            {followed}
           </button>
         </div>
         <div className={classes.description}>
           <div>
-            <div className={classes.name}>{ this.props.name }</div>
-    <div className={classes.status}>{ this.props.status }</div>
+            <div className={classes.name}>{this.props.name}</div>
+            <div className={classes.status}>{this.props.status}</div>
           </div>
           <div className={classes.location}>
             <div>#{this.props.id}</div>

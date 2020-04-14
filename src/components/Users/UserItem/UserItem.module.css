@@ -18,6 +18,9 @@
     padding: 0;
     width: 100px;
 }
+.follow:disabled {
+    background-color: rgba( 58, 4, 112, 0.3);
+}
 
 .userItem {
     margin: 30px;

@@ -20,6 +20,8 @@ const Users = (props) => {
       photo={u.photos.small}
       location={u.location}
       toggleFollow={props.toggleFollow}
+      followingInProgress={props.followingInProgress}
+      toggleFollowingInProgress={props.toggleFollowingInProgress}
     />)
   });
 

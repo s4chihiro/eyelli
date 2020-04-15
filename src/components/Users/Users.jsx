@@ -18,10 +18,9 @@ const Users = (props) => {
       followed={u.followed}
       status={u.status}
       photo={u.photos.small}
-      location={u.location}
-      toggleFollow={props.toggleFollow}
       followingInProgress={props.followingInProgress}
-      toggleFollowingInProgress={props.toggleFollowingInProgress}
+      follow={props.follow}
+      unfollow={props.unfollow}
     />)
   });
 
@@ -30,7 +29,7 @@ const Users = (props) => {
         {
         pages.map(p => <span 
           className={props.currentPage === p && classes.selectedPage} 
-          onClick={(e) => { props.onPageChanged(p) }}>{ p } </span>
+          onClick={() => { props.onPageChanged(p) }}>{ p } </span>
         )}
  
           { users }

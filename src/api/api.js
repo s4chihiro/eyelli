@@ -8,7 +8,7 @@ const instanse = axios.create({
   }
 })
 
-export const getUsers = (currentPage = 1, pageSize = 5) => {
+export const getUsersAPI = (currentPage = 1, pageSize = 5) => {
   return instanse.get(`users?page=${currentPage}&count=${pageSize}`).then(response => ( response.data ));
 };
 
@@ -20,7 +20,11 @@ export const followPost = (id) => {
   return instanse.post(`follow/${id}`).then(response => ( response.data ));
 };
 
-export const getAuth = () => {
+export const getAuthAPI = () => {
   return instanse.get(`auth/me`).then(response => ( response.data ));
 };
+
+export const getProfileAPI = (id) => {
+  return instanse.get(`profile/${id}`).then(response => ( response.data ));
+}
 

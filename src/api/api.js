@@ -41,5 +41,8 @@ export const authAPI = {
   },
   login(formData) {
     return instanse.post(`auth/login`,{ email: formData.email, password: formData.password, rememberMe: formData.rememberMe });
+  },
+  logout() {
+    return instanse.delete(`auth/login`)
   }
 }

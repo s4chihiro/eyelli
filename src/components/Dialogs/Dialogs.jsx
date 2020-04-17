@@ -34,20 +34,6 @@ const Dialogs = (props) => {
 
 const AddMessageForm = (props) => {
 
-
-  /*let newMessageElement = React.createRef();
-
-  let messageText = props.messageText;
-
-  let onAddMessageClick = () => {
-    props.addMessage();
-  };
-
-  let onMessageChange = (e) => {
-    let text = e.target.value;
-    props.updateNewMessage(text);
-  };*/
-
   return (
     <form onSubmit={props.handleSubmit}>
       <Field component='textarea' name='newMessageBody' placeholder='Enter your message' />

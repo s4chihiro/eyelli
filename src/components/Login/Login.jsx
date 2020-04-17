@@ -1,19 +1,20 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { authAPI } from '../../api/api';
+import classes from './Login.module.css'
 
 
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={props.handleSubmit} className={classes.loginForm}>
       <div>
-        <Field placeholder={'email'} name={'email'} component={'input'} />
+        <Field placeholder={'email'} name={'email'} component={'input'}  className={classes.input}/>
       </div>
       <div>
-        <Field placeholder={'password'} name={'password'} component={'input'} />
+        <Field type='password' placeholder={'password'} name={'password'} component={'input'} className={classes.input}/>
       </div>
       <div>
-        <Field type={'checkbox'} name={'rememberMe'} component={'input'} />Remember me
+        <Field type={'checkbox'} name={'rememberMe'} component={'input'} className={classes.input}/>Remember me
       </div>
       <div>
         <button>Login</button>

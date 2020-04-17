@@ -9,6 +9,8 @@
   display: flex;
 }
 .discription {
+  display: flex;
+  flex-direction: column;
   margin-left: 50px;
 }
 .discriptionItem {

@@ -1,6 +1,7 @@
 body {
   background-color:#F5F5F5;
-  overflow-y: scroll;
+  margin-left: calc(100vw - 100%);
+  margin-right: 0;
 }
 .app-wrapper {
   width: 1140px;

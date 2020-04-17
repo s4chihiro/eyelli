@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './ProfileInfo.module.css';
 import avatar from './../../../assets/defavatar.png';
 import Preloader from '../../common/Preloader/Preloader';
+import ProfileStatus from './ProfileStatus';
 
 
 const ProfileInfo = (props) => {
@@ -30,7 +31,7 @@ const ProfileInfo = (props) => {
               <span className={classes.name}>{props.profile.fullName}</span>
               <span className={classes.id}>#{props.profile.userId}</span>
             </div>
-            <div className={classes.discriptionItem}>{props.profile.aboutMe}</div>
+            <ProfileStatus className={classes.discriptionItem} status={props.status} updateStatus={props.updateStatus}/>
            
           </div>
 

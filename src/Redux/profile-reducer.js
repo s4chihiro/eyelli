@@ -22,7 +22,6 @@ const profileReducer = (state = initialState, action) => {
         message: action.newText,
         likesCount: '0'
       }
-      if (!post.message) { return state }
       return {
         ...state,
         posts: [post, ...state.posts]

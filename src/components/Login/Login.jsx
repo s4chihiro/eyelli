@@ -1,9 +1,9 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { authAPI } from '../../api/api';
 import classes from './Login.module.css'
 import { Input } from '../common/FormsControls/FormsControls';
 import { required } from '../utils/validators/validators';
+import { Redirect } from 'react-router-dom';
 
 
 const LoginForm = (props) => {
@@ -29,12 +29,10 @@ const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    authAPI.login(formData).then(response => {
-      if (response.data.resultCode === 0) {
-        props.getAuth();
-      }
-    });
+    props.login(formData);
   }
+
+
   if (!props.isAuth) {
     return (
       <div>
@@ -43,7 +41,7 @@ const Login = (props) => {
       </div>
     );
   } else {
-    return <h1>You already are logged in</h1>
+    return <Redirect to='/profile'/>
   }
 };
 

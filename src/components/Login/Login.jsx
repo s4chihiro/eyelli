@@ -9,6 +9,7 @@ import { Redirect } from 'react-router-dom';
 const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit} className={classes.loginForm}>
+      <div className={classes.formError}>{props.error}</div>
       <div>
         <Field type='email' placeholder='email' name='email' component={Input} className={classes.input} validate={[required]} />
       </div>
@@ -28,10 +29,10 @@ const LoginForm = (props) => {
 const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
 
 const Login = (props) => {
+
   const onSubmit = (formData) => {
     props.login(formData);
   }
-
 
   if (!props.isAuth) {
     return (

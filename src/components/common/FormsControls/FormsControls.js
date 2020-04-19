@@ -12,7 +12,7 @@ const FormControl = ({ input, meta, ...props }) => {
 }
 
 export const Textarea = (props) => {
-  let { input, meta, element, ...restProps } = props;
+  let { input, meta, ...restProps } = props;
   return (
     <FormControl {...props}>
       <textarea {...input} {...restProps} />
@@ -21,7 +21,7 @@ export const Textarea = (props) => {
 }
 
 export const Input = (props) => {
-  let { input, meta, element, ...restProps } = props;
+  let { input, meta, ...restProps } = props;
   return (
     <FormControl {...props}>
       <input {...input} {...restProps} />

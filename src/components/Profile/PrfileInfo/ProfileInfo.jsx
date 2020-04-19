@@ -3,6 +3,7 @@ import classes from './ProfileInfo.module.css';
 import avatar from './../../../assets/defavatar.png';
 import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatus from './ProfileStatus';
+//import wallpapper from './../../../assets/wallpapper.jpg';
 
 
 const ProfileInfo = (props) => {
@@ -16,9 +17,9 @@ const ProfileInfo = (props) => {
     return (
       <div>
 
-        <div className={classes.wallpaper}>
-          <img src="https://asiamountains.net/upload/slide/slide-1960x857-07.jpg" alt="wallpapper" />
-        </div>
+        {/*<div className={classes.wallpaper}>
+          <img src={wallpapper} alt="wallpapper" />
+        </div>*/}
 
         <div className={classes.discriptionBlock}>
 

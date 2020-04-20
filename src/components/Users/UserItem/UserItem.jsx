@@ -5,12 +5,14 @@ import { NavLink } from 'react-router-dom';
 
 class UserItem extends React.Component {
 
+
   onClick = () => {
     return this.props.followed ? this.props.unfollow(this.props.id) : this.props.follow(this.props.id);
   }
   render() {
-    let photo = this.props.photo ? this.props.photo : photoAva;
 
+    let disabled = this.props.isAuth ? this.props.followingInProgress.some(id => id === this.props.id) : true;
+    let photo = this.props.photo ? this.props.photo : photoAva;
     let followed = this.props.followed ? 'unfollow' : 'follow';
 
     return (
@@ -19,7 +21,7 @@ class UserItem extends React.Component {
           <NavLink to={'/profile/' + this.props.id}>
             <img className={classes.ava} src={ photo } alt={'avatar'} />
           </NavLink>
-          <button disabled={this.props.followingInProgress.some(id => id === this.props.id)} onClick={this.onClick} className={classes.follow}>
+          <button disabled={ disabled } onClick={ this.onClick } className={classes.follow}>
             { followed }
           </button>
         </div>
@@ -36,6 +38,4 @@ class UserItem extends React.Component {
     )
   }
 }
-
-
 export default UserItem;

@@ -25,11 +25,10 @@ class App extends React.Component {
     if (!this.props.initialized) {
       return <Preloader />
     } else {
-      debugger
       return (
         <div className="app-wrapper">
           <HeaderContainer />
-          <Navbar state={this.props.store.getState().friendsList} />
+          <Navbar />
           <div className="app-wrapper-content">
             <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
             <Route path="/messages" render={() => <DialogsContainer />} />

@@ -2,24 +2,17 @@ import React from 'react';
 import classes from './ProfileInfo.module.css';
 import avatar from './../../../assets/defavatar.png';
 import Preloader from '../../common/Preloader/Preloader';
-//import ProfileStatus from './ProfileStatus';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 
 const ProfileInfo = (props) => {
-
   if (!props.profile) {
     return <Preloader />
   } else {
-  
   let photoAva = props.profile.photos.large ? props.profile.photos.large : avatar;
 
     return (
       <div>
-
-        {/*<div className={classes.wallpaper}>
-          <img src={wallpapper} alt="wallpapper" />
-        </div>*/}
 
         <div className={classes.discriptionBlock}>
 

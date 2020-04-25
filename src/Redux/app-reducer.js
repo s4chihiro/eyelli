@@ -24,14 +24,12 @@ const initializedSuccess = () => ({
   type: INITIALIZED_SUCCESS,
 });
 
-export const initializeApp = () => {
-  return (dispatch) => {
-    let promise = dispatch(getAuth());
+export const initializeApp = () => dispatch => {
+  let promise = dispatch(getAuth());
 
-    Promise.all([promise]).then(() => {
-      dispatch(initializedSuccess());
-    })
-  };
-}
+  Promise.all([promise]).then(() => {
+    dispatch(initializedSuccess());
+  })
+};
 
 export default appReducer;

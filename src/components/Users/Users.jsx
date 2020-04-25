@@ -1,42 +1,42 @@
 import React from 'react';
 import classes from './Users.module.css';
 import UserItem from './UserItem/UserItem';
+import Paginator from './Paginator';
 
 const Users = (props) => {
-  
-  let pagesCount = Math.ceil( props.totalUsersCount / props.pageSize ); 
-  let pages = [];
 
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
-  let users = props.users.map(u => {
-    return (<UserItem
-      id={u.id}
-      name={u.name}
-      followed={u.followed}
-      status={u.status}
-      photo={u.photos.small}
-      followingInProgress={props.followingInProgress}
-      follow={props.follow}
-      unfollow={props.unfollow}
-      isAuth={props.isAuth}
-    />)
+  let users = props.users.map(user => {
+    return (
+      <UserItem
+        id={user.id}
+        name={user.name}
+        followed={user.followed}
+        status={user.status}
+        photo={user.photos.small}
+        followingInProgress={props.followingInProgress}
+        follow={props.follow}
+        unfollow={props.unfollow}
+        isAuth={props.isAuth}
+      />
+    )
   });
 
-    return (
-      <div className={classes.usersWrap}>
-        {
-        pages.map(p => <span 
-          className={props.currentPage === p && classes.selectedPage} 
-          onClick={() => { props.onPageChanged(p) }}>{ p } </span>
-        )}
- 
-          { users }
+  return (
+    <div className={classes.usersWrap}>
 
+      <div className={classes.PagesWrap}>
+        <Paginator
+          totalUsersCount={props.totalUsersCount}
+          pageSize={props.pageSize}
+          currentPage={props.currentPage}
+          onPageChanged={props.onPageChanged}
+        />
       </div>
-    )
+
+      {users}
+
+    </div>
+  )
 }
 
 export default Users;

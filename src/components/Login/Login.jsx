@@ -6,10 +6,10 @@ import { required } from '../utils/validators/validators';
 import { Redirect } from 'react-router-dom';
 
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
   return (
-    <form onSubmit={props.handleSubmit} className={classes.loginForm}>
-      <div className={classes.formError}>{props.error}</div>
+    <form onSubmit={handleSubmit} className={classes.loginForm}>
+      <div className={classes.formError}>{error}</div>
       <div>
         <Field type='email' placeholder='email' name='email' component={Input} className={classes.input} validate={[required]} />
       </div>
@@ -28,13 +28,13 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
 
   const onSubmit = (formData) => {
-    props.login(formData);
+    login(formData);
   }
 
-  if (!props.isAuth) {
+  if (!isAuth) {
     return (
       <div>
         <h1>Login</h1>

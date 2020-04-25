@@ -3,6 +3,7 @@ import { profileAPI } from "../api/api";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
+const DELETE_POST ='DELETE-POST';
 
 let initialState = {
   posts: [
@@ -27,6 +28,12 @@ const profileReducer = (state = initialState, action) => {
         posts: [post, ...state.posts]
       }
     }
+    case DELETE_POST: {
+      return {
+        ...state,
+        posts: state.posts.filter(p => p.id !== action.postId)
+      }
+    }
     case SET_USER_PROFILE: {
       return {
         ...state,
@@ -45,6 +52,8 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPost = (newText) => ({ type: ADD_POST, newText });
 
+export const deletePost = (postId) => ({ type: DELETE_POST, postId });
+
 const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile
@@ -52,28 +61,19 @@ const setUserProfile = (profile) => ({
 
 const setStatus = (status) => ({ type: SET_STATUS, status });
 
-export const getProfile = (userId) => {
-  return (dispatch) => {
-    profileAPI.getProfile(userId).then(data => {
-      dispatch(setUserProfile(data));
-    });
-  }
-}
-export const getStatus = (userId) => {
-  return (dispatch) => {
-    profileAPI.getStatus(userId).then(data => {
-      dispatch(setStatus(data));
-    });
-  }
-}
+export const getProfile = (userId) => async dispatch => {
+    let response = await profileAPI.getProfile(userId);
+    dispatch(setUserProfile(response.data));
+};
+export const getStatus = (userId) => async dispatch => {
+    let response = await profileAPI.getStatus(userId);
+    dispatch(setStatus(response.data));
+};
 
-export const updateStatus = (status) => {
-  return (dispatch) => {
-    profileAPI.updateStatus(status).then(data => {
-      if (data.resultCode === 0) {
-        dispatch(setStatus(status));
-      }
-    });
+export const updateStatus = (status) => async dispatch => {
+  let response = await profileAPI.updateStatus(status);
+  if (response.data.resultCode === 0) {
+    dispatch(setStatus(status));
   }
 }
 

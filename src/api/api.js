@@ -11,33 +11,33 @@ const instanse = axios.create({
 export const usersAPI = {
 
   unfollow(id) {
-    return instanse.delete(`follow/${id}`).then(response => (response.data));
+    return instanse.delete(`follow/${id}`);
   },
 
   follow(id) {
-    return instanse.post(`follow/${id}`).then(response => (response.data));
+    return  instanse.post(`follow/${id}`);
   },
   getUsers(currentPage = 1, pageSize = 5) {
-    return instanse.get(`users?page=${currentPage}&count=${pageSize}`).then(response => (response.data));
+    return instanse.get(`users?page=${currentPage}&count=${pageSize}`);
   }
 }
 
 export const profileAPI = {
   getProfile(id) {
-    return instanse.get(`profile/${id}`).then(response => (response.data));
+    return instanse.get(`profile/${id}`);
   },
   getStatus(id) {
-    return instanse.get(`profile/status/${id}`).then(response => (response.data));
+    return instanse.get(`profile/status/${id}`);
   },
   updateStatus(status) {
-    return instanse.put(`profile/status`, {status: status}).then(response => (response.data));
+    return instanse.put(`profile/status`, {status: status});
   }
 }
 
 
 export const authAPI = {
   me() {
-    return instanse.get(`auth/me`).then(response => (response.data));
+    return instanse.get(`auth/me`);
   },
   login(formData) {
     return instanse.post(`auth/login`,{ email: formData.email, password: formData.password, rememberMe: formData.rememberMe });

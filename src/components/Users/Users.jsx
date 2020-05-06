@@ -5,7 +5,7 @@ import Paginator from './Paginator';
 
 const Users = (props) => {
 
-  let users = props.users.map(user => {
+  let users = props.users.map((user) => {
     return (
       <UserItem
         id={user.id}

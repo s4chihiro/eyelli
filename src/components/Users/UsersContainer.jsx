@@ -1,9 +1,10 @@
 import React from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { getUsers, onPageChanged, follow, unfollow } from '../../Redux/users-reducer';
 import Preloader from '../common/Preloader/Preloader';
 import Users from './Users';
-import { compose } from 'redux';
+
 import { getIsAuth } from '../../Redux/isAuth-selector';
 
 class UsersContainer extends React.Component {

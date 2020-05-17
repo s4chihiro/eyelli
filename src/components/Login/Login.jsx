@@ -17,7 +17,7 @@ const LoginForm = ({handleSubmit, error}) => {
         <Field type='password' placeholder='password' name='password' component={Input} className={classes.input} validate={[required]} />
       </div>
       <div>
-        <Field id='rememberMe' type='checkbox' name='rememberMe' component={Input}/> <label for='rememberMe'>Remember me</label>
+        <Field id='rememberMe' type='checkbox' name='rememberMe' component={Input}/> <label htmlFor='rememberMe'>Remember me</label>
       </div>
       <div>
         <button>Login</button>
